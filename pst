@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Finder</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+    <div style="max-width: 600px; margin: 50px auto; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+        <h2 style="text-align: center; color: #333;">Cost Finder</h2>
+        <div style="margin-bottom: 20px;">
+            <label for="transport" style="display: block; margin-bottom: 5px; color: #555;">Select Mode of Transport:</label>
+            <select id="transport" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="car">Car</option>
+                <option value="bus">Bus</option>
+                <option value="train">Train</option>
+                <option value="flight">Flight</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label for="hotel" style="display: block; margin-bottom: 5px; color: #555;">Select Hotel Type:</label>
+            <select id="hotel" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="budget">Budget</option>
+                <option value="midrange">Midrange</option>
+                <option value="luxury">Luxury</option>
+            </select>
+        </div>
+        <div style="text-align: center;">
+            <button onclick="calculateCost()" style="background-color: #28a745; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Calculate Cost</button>
+        </div>
+        <div id="result" style="margin-top: 20px; text-align: center; color: #333;"></div>
+    </div>
+
+    <script>
+        function calculateCost() {
+            const transport = document.getElementById('transport').value;
+            const hotel = document.getElementById('hotel').value;
+            let transportCost, hotelCost;
+
+            switch (transport) {
+                case 'car':
+                    transportCost = '$50';
+                    break;
+                case 'bus':
+                    transportCost = '$30';
+                    break;
+                case 'train':
+                    transportCost = '$70';
+                    break;
+                case 'flight':
+                    transportCost = '$200';
+                    break;
+                default:
+                    transportCost = '$0';
+            }
+
+            switch (hotel) {
+                case 'budget':
+                    hotelCost = '$50';
+                    break;
+                case 'midrange':
+                    hotelCost = '$100';
+                    break;
+                case 'luxury':
+                    hotelCost = '$200';
+                    break;
+                default:
+                    hotelCost = '$0';
+            }
+
+            document.getElementById('result').innerText = `Estimated Cost: Transport - ${transportCost}, Hotel - ${hotelCost}`;
+        }
+    </script>
+</body>
+</html>
